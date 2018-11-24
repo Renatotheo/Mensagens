@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "499653112729",
+    "firebase_url": "https://mensagens-1d05d.firebaseio.com",
+    "project_id": "mensagens-1d05d",
+    "storage_bucket": "mensagens-1d05d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499653112729:android:8e9d377a019bb289",
+        "android_client_info": {
+          "package_name": "com.mensagens.theobaldo.mensagens"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499653112729-52hsb2prsqccvkqoolsm62el49tbcadg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mensagens.theobaldo.mensagens",
+            "certificate_hash": "394d7529a79c45abd95f88747cd9dd9281939f90"
+          }
+        },
+        {
+          "client_id": "499653112729-1elmoq4d7neh56jbv9ujudhrmm5e2e96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIUo2o9ikGO2yseveM9tRgwxt-csdTMhc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499653112729-1elmoq4d7neh56jbv9ujudhrmm5e2e96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
