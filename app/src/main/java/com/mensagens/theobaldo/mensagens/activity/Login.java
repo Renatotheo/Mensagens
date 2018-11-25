@@ -132,7 +132,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-
+//teste4
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[]grandResult){
 
 
