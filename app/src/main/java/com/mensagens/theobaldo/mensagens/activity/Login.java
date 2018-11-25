@@ -131,6 +131,8 @@ public class Login extends AppCompatActivity {
 
     }
 
+
+    //Teste
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[]grandResult){
 
 
