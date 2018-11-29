@@ -2,6 +2,7 @@ package com.mensagens.theobaldo.mensagens.activity;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -65,35 +67,68 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Recupera o que está na caixa de texto Nome
-                String nomeUsuario = nome.getText().toString();
+                    if (nome.getText().length() == 0) {
 
-                //Recupera o que está na caixa dos numeros de telefone e concatena
-                String telefoneCompleto =
-                        pais.getText().toString() +
-                        area.getText().toString() +
-                        telefone.getText().toString();
+                    Toast.makeText(Login.this, "Nome Vazio", Toast.LENGTH_LONG).show();
 
-                //Formatação do número retirando traços e parenteses (Filtro)
-                String telefoneSemFormatacao = telefoneCompleto.replace("+","");
-                telefoneSemFormatacao = telefoneSemFormatacao.replace("-", "");
-                telefoneSemFormatacao = telefoneSemFormatacao.replace("(", "");
+                    }else if (pais.getText().length() <= 2) {
 
-                //Geração de Token com classe Random
-                Random randomico = new Random();
-                int numeroRandomico = randomico.nextInt(9999 - 1000) + 1000;
+                    Toast.makeText(Login.this, "Código País Vazio", Toast.LENGTH_LONG).show();
 
-                String Token = String.valueOf(numeroRandomico);
-                String mensagemEnvio = "Código de confirmação" + Token;
+                    }else if (area.getText().length() <= 2) {
 
-                // Log.i("Token","T:" + Token);
+                    Toast.makeText(Login.this, "Código Área Vazio", Toast.LENGTH_LONG).show();
 
-                preferencias Preferencias = new preferencias(getApplicationContext());
-                Preferencias.salvarusuariopreferencias(nomeUsuario, telefoneCompleto, Token);
+                    }else if (telefone.getText().length() <= 10  ) {
 
-                //Envio do SMS
-               // telefoneSemFormatacao = "8135";
-                boolean enviadoSMS = enviaSMS("+" + telefoneSemFormatacao, mensagemEnvio);
+                    Toast.makeText(Login.this, "Telefone Vazio", Toast.LENGTH_LONG).show();
+
+
+
+                } else {
+
+                    //Recupera o que está na caixa de texto Nome
+                    String nomeUsuario = nome.getText().toString();
+
+
+                    //Recupera o que está na caixa dos numeros de telefone e concatena
+                    String telefoneCompleto =
+                            pais.getText().toString() +
+                                    area.getText().toString() +
+                                    telefone.getText().toString();
+
+                    //Formatação do número retirando traços e parenteses (Filtro)
+                    String telefoneSemFormatacao = telefoneCompleto.replace("+", "");
+                    telefoneSemFormatacao = telefoneSemFormatacao.replace("-", "");
+                    telefoneSemFormatacao = telefoneSemFormatacao.replace("(", "");
+
+                    //Geração de Token com classe Random
+                    Random randomico = new Random();
+                    int numeroRandomico = randomico.nextInt(9999 - 1000) + 1000;
+
+                    String Token = String.valueOf(numeroRandomico);
+                    String mensagemEnvio = "Código de confirmação" + Token;
+
+                    // Log.i("Token","T:" + Token);
+
+                    preferencias Preferencias = new preferencias(getApplicationContext());
+                    Preferencias.salvarusuariopreferencias(nomeUsuario, telefoneCompleto, Token);
+
+                    //Envio do SMS
+                    telefoneSemFormatacao = "8135";
+                    boolean enviadoSMS = enviaSMS("+" + telefoneSemFormatacao, mensagemEnvio);
+
+                    if (enviadoSMS) {
+
+                        Intent intent = new Intent(getApplicationContext(), Validador.class);
+                        startActivity(intent);
+                        finish();
+
+                    } else {
+
+                        Toast.makeText(Login.this, "Problema ao enviar SMS, tente novamente", Toast.LENGTH_LONG).show();
+
+                    }
 
 
                 /*
@@ -103,10 +138,10 @@ public class Login extends AppCompatActivity {
                 */
 
 
+                    //Log.i("Telefone","T:" + telefoneSemFormatacao);
 
+                }
 
-                //Log.i("Telefone","T:" + telefoneSemFormatacao);
-                
             }
         });
 
