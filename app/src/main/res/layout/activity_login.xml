@@ -20,69 +20,48 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/edit_nomeID"
+        android:id="@+id/edit_emailID"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="224dp"
         android:ems="10"
-        android:hint="Digite seu nome"
-        android:inputType="textPersonName"
-        android:textColor="@color/textColorPrimary"
+        android:hint="Digite seu email"
+        android:inputType="textEmailAddress"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/edit_codigopaisID"
-        android:layout_width="50dp"
+        android:id="@+id/Edit_senhaID"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="296dp"
         android:ems="10"
-        android:hint="+55"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textColor="@color/textColorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <EditText
-        android:id="@+id/edit_codigoareaID"
-        android:layout_width="50dp"
+    <Button
+        android:id="@+id/bt_logarID"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="348dp"
-        android:ems="10"
-        android:hint="21"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textColor="@color/textColorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="360dp"
+        android:text="Logar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <EditText
-        android:id="@+id/edit_telefoneID"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="420dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="999-999999"
-        android:inputType="number"
-        android:textColor="@color/textColorPrimary"
+        android:onClick="abrirCadastroUsuario"
+        android:text="Não tem conta ? Cadastre-se"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/bt_cadastrarID"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="428dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/botao_cadastrar"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>
